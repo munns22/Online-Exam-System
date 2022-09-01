@@ -1,0 +1,10 @@
+<div class="topnav">
+  <a href="#" class="active" >Home</a>
+  <a href="admin_login" *ngIf="sessionUser==null && sessionAdmin==null" >Admin</a>
+  <a href="admin_dashboard" *ngIf="sessionUser==null && sessionAdmin!=null" >Admin</a>
+  <a href="userDashboard" *ngIf="sessionUser!=null">User Dashboard</a>
+  <a href="user_login" class="right" *ngIf="sessionUser==null && sessionAdmin==null">Login</a>
+  <a href="#" class="right" (click)="logout()"  *ngIf="sessionUser!=null || sessionAdmin!=null" >Logout</a>
+  <a href="user_registration"  class="right" *ngIf="sessionAdmin==null" >Register</a>
+  <a href="aboutUs">About us</a>
+</div>

@@ -1,0 +1,47 @@
+<app-menu-bar></app-menu-bar>
+<div>
+
+ <img class="addimg" src="assets\images\white-question.webp" style="width: 1000px">
+ <div class=add>
+  <form (ngSubmit)="searchQuestion()" style="width: 500px; margin: auto;">
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Technology</label>
+      <select class="form-control" id="exampleFormControlSelect1" name="course_id"[(ngModel)]="course_id">
+        <option value="101">Java</option>
+        <option value="102">Python</option>
+        <option value="103">.Net</option>        
+        <option value="104">C</option>
+        <option value="105">PHP</option>
+        <option value="106">C++</option>
+      </select> 
+      
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Levels: </label>
+      <select class="form-control" id="exampleFormControlSelect1" name="level_id" [(ngModel)]="level_id">
+        <option value="1">1</option>
+       
+      </select>
+    </div>
+      
+
+         
+     <div>
+      <table class="table" *ngIf="question_list != null">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Question ID</th>
+            <th scope="col">Question</th>
+            <th scope="col">Remove Question</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of question_list">
+            <td>{{item.question_id}}</td>
+            <td>{{item.question}}</td>
+            <td><button type="submit" class="button" (click)="removingQuestion(item.question_id)">Remove</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button type="submit" class="button">Submit</button>
